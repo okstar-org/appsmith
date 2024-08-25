@@ -7,6 +7,7 @@ on:
     paths:
       - "app/client/packages/design-system/**"
       - "app/client/packages/storybook/**"
+      - ".github/workflows/build-storybook.yml"
   pull_request:
     paths:
       - "app/client/packages/design-system/**"
