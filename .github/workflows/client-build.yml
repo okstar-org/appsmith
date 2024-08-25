@@ -19,7 +19,7 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
+  pull-requests: none
 
 # Change the working directory for all "run" steps in this workflow
 defaults:
