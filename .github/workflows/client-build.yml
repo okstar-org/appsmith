@@ -194,21 +194,22 @@ jobs:
       - name: Fetch client build from cache
         if: steps.changed-files-specific.outputs.any_changed == 'false' && success()  && github.event_name != 'push' && github.event_name != 'workflow_dispatch'  && github.event_name != 'schedule'
         env:
-          cachetoken: ${{ secrets.CACHETOKEN }}
+          cachetoken: ${{ secrets.CACHE_TOKEN }}
           reponame: ${{ github.event.repository.name }}
           gituser: ${{ secrets.CACHE_GIT_USER }}
           gituseremail: ${{ secrets.CACHE_GIT_EMAIL }}
+          cache_repo: appsmith-build-cache
         run: |
           mkdir cacherepo
           cd ./cacherepo
           git lfs install
           git config --global user.email "$gituseremail"
           git config --global user.name "$gituser"
-          git clone https://$cachetoken@github.com/appsmithorg/cibuildcache.git
+          git clone https://github.com/okstar-org/${cache_repo}.git
           git lfs install
           if [ "$reponame" = "appsmith" ]; then export repodir="CE"; fi
           if [ "$reponame" = "appsmith-ee" ]; then export repodir="EE"; fi
-          cd cibuildcache/$repodir/release/client
+          cd ${cache_repo}/$repodir/release/client
           git lfs pull ./build.tar
           mv ./build.tar ../../../../../build.tar
 
