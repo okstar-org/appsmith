@@ -15,7 +15,6 @@ on:
 jobs:
   chromatic-deployment:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout PR if pull_request event
         if: github.event_name == 'pull_request'
