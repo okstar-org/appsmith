@@ -56,7 +56,7 @@ All ENV variables from your `.env` file and all `APPSMITH_*` env variables from 
         "appName": "5f8e1666", // Pass your app name here. Given value is a sample value for reference
         "pageName": "page-1", // Pass your page name here. Given value is a sample value for reference
         "pageID": "64635173cc2cee025a77f489", // Pass your PageID here. Given value is a sample value for reference
-        "url": "https://dev.appsmith.com/app/5f8e1666/page1-64635173cc2cee025a77f489/edit", // You can choose to pass in url of your app instead of individual parameters above.
+        "url": "https://app.okstar.org/app/5f8e1666/page1-64635173cc2cee025a77f489/edit", // You can choose to pass in url of your app instead of individual parameters above.
         "usesDSL": true // Set it to false, if your test doesn't use DSL. If your test uses DSL, you can choose to enable this flag to skip multiple visits to the workspace page.
       }
 ```

@@ -89,8 +89,8 @@ const unevalTreeFromMainThread = {
     },
     URL: {
       fullPath: "",
-      host: "dev.appsmith.com",
-      hostname: "dev.appsmith.com",
+      host: "app.okstar.org",
+      hostname: "app.okstar.org",
       queryParams: {},
       protocol: "https:",
       pathname: "",

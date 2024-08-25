@@ -9,7 +9,7 @@ describe("PostMessageSaga", () => {
       payload: {
         message: "hello world",
         source: "window",
-        targetOrigin: "https://dev.appsmith.com",
+        targetOrigin: "https://app.okstar.org",
       },
     });
 
@@ -18,7 +18,7 @@ describe("PostMessageSaga", () => {
         spawn(executePostMessage, {
           message: "hello world",
           source: "window",
-          targetOrigin: "https://dev.appsmith.com",
+          targetOrigin: "https://app.okstar.org",
         }),
       );
     });
@@ -44,13 +44,13 @@ describe("PostMessageSaga", () => {
         {
           message: "hello world",
           source: "window",
-          targetOrigin: "https://dev.appsmith.com",
+          targetOrigin: "https://app.okstar.org",
         },
       );
 
       expect(postMessage).toHaveBeenCalledWith(
         "hello world",
-        "https://dev.appsmith.com",
+        "https://app.okstar.org",
         undefined,
       );
 

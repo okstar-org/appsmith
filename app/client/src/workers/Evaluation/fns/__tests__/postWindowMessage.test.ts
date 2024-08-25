@@ -19,7 +19,7 @@ describe("Post window message works", () => {
   });
 
   it("postMessage payload check", async () => {
-    const targetOrigin = "https://dev.appsmith.com/";
+    const targetOrigin = "https://app.okstar.org/";
     const source = "window";
     const message = {
       key1: 1,
@@ -43,7 +43,7 @@ describe("Post window message works", () => {
         payload: {
           message,
           source: "window",
-          targetOrigin: "https://dev.appsmith.com/",
+          targetOrigin: "https://app.okstar.org/",
         },
         type: "POST_MESSAGE",
       },

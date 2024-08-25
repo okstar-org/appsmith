@@ -83,7 +83,7 @@ fi
 working_dir="$PWD/caddy"
 mkdir -pv "$working_dir"
 
-domain=dev.appsmith.com
+domain=app.okstar.org
 
 upstream_host=localhost
 

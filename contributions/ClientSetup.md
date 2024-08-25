@@ -39,10 +39,10 @@ On your development machine, please ensure that:
       - `_wildcard.appsmith.com-key.pem`
       - `_wildcard.appsmith.com.pem`
 
-   1. Add the domain `dev.appsmith.com` to `/etc/hosts`.
+   1. Add the domain `app.okstar.org` to `/etc/hosts`.
 
       ```bash
-      echo "127.0.0.1 dev.appsmith.com" | sudo tee -a /etc/hosts
+      echo "127.0.0.1 app.okstar.org" | sudo tee -a /etc/hosts
       ```
 
       Note:
@@ -85,7 +85,7 @@ On your development machine, please ensure that:
 
 1. Run `yarn start`.
 
-   - 🎉 Your Appsmith client is now running on https://dev.appsmith.com.
+   - 🎉 Your Appsmith client is now running on https://app.okstar.org.
    - <b>This URL must be opened with https and not have port 3000 in it.</b>
 
 1. If yarn start throws mismatch node version error
@@ -102,7 +102,7 @@ On your development machine, please ensure that:
 
 ##### Pre-flight checks
 
-- The base URL can be updated on a temporary basis in the `cypress.config.ts` file based on the configuration you used for running the codebase locally. By default, it’s `https://dev.appsmith.com` .
+- The base URL can be updated on a temporary basis in the `cypress.config.ts` file based on the configuration you used for running the codebase locally. By default, it’s `https://app.okstar.org` .
 - If you wish to run Git test cases locally, please add `APPSMITH_GIT_ROOT=./container-volumes/git-storage` to the folder `app/server/.env` and run the server locally instead of via Docker container.
 
 ##### Setup Cypress configurations
@@ -232,12 +232,12 @@ After this, you can continue Setting up from [here](#pre-requisites).
 
 ### Troubleshooting
 
-#### I am on WSL and can't reach dev.appsmith.com
+#### I am on WSL and can't reach app.okstar.org
 
-- You will need to add `dev.appsmith.com` to Windows' `C:\Windows\System32\drivers\etc\hosts` instead of `/etc/hosts`. Alternately, you can install a desktop environment in WSL to open `dev.appsmith.com` from a browser in WSL.
+- You will need to add `app.okstar.org` to Windows' `C:\Windows\System32\drivers\etc\hosts` instead of `/etc/hosts`. Alternately, you can install a desktop environment in WSL to open `app.okstar.org` from a browser in WSL.
 
   ```
-  127.0.0.1 dev.appsmith.com
+  127.0.0.1 app.okstar.org
   ```
 
 - WSL network with windows can be brittle; make sure you can reach http://127.0.0.1:3000 from windows. If not, restarting wsl usually resolves the issue.
@@ -249,7 +249,7 @@ After this, you can continue Setting up from [here](#pre-requisites).
 
   **Example**: Some Linux distros have `apache2` listening on 80. Stop them with `sudo systemctl stop apache2`
 
-#### I want to add dev.appsmith.com conf to my local Nginx without Docker.
+#### I want to add app.okstar.org conf to my local Nginx without Docker.
 
 1. Copy `app/client/docker/templates/nginx-app.conf.template` over to your nginx sites directory.
 1. You can remove or replace values for all the `sub_filter`. None of those properties are required.

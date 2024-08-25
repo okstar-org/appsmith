@@ -10303,9 +10303,9 @@ export const defaultAppState = {
       },
       URL: {
         fullPath:
-          "https://dev.appsmith.com/app/view-data/home-659f81c8d0cbfb0c5e0a743b/edit",
-        host: "dev.appsmith.com",
-        hostname: "dev.appsmith.com",
+          "https://app.okstar.org/app/view-data/home-659f81c8d0cbfb0c5e0a743b/edit",
+        host: "app.okstar.org",
+        hostname: "app.okstar.org",
         queryParams: {},
         protocol: "https:",
         pathname: "/app/view-data/home-659f81c8d0cbfb0c5e0a743b/edit",

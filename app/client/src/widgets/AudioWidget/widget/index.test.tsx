@@ -13,7 +13,7 @@ const urlTests = [
   { url: "https://appsmith.com/randompath/some file.mp3", isValid: true },
   { url: "random string", isValid: false },
   {
-    url: "blob:https://dev.appsmith.com/9db94f56-5e32-4b18-2758-64c21a7f4610",
+    url: "blob:https://app.okstar.org/9db94f56-5e32-4b18-2758-64c21a7f4610",
     isValid: true,
   },
 ];

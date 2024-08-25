@@ -109,9 +109,9 @@ export const unEvalTree = {
     },
     URL: {
       fullPath:
-        "https://dev.appsmith.com/applications/6200d1a2b5bfc0392b959cab/pages/6220c268c48234070f8ac65a/edit?a=b",
-      host: "dev.appsmith.com",
-      hostname: "dev.appsmith.com",
+        "https://app.okstar.org/applications/6200d1a2b5bfc0392b959cab/pages/6220c268c48234070f8ac65a/edit?a=b",
+      host: "app.okstar.org",
+      hostname: "app.okstar.org",
       queryParams: {
         a: "b",
       },

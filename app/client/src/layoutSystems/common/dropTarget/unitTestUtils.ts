@@ -47,9 +47,9 @@ export const unitTestBaseMockStore = {
       },
       URL: {
         fullPath:
-          "https://dev.appsmith.com/app/my-first-application/page1-659d2e15d0cbfb0c5e0a742b/edit",
-        host: "dev.appsmith.com",
-        hostname: "dev.appsmith.com",
+          "https://app.okstar.org/app/my-first-application/page1-659d2e15d0cbfb0c5e0a742b/edit",
+        host: "app.okstar.org",
+        hostname: "app.okstar.org",
         queryParams: {},
         protocol: "https:",
         pathname:

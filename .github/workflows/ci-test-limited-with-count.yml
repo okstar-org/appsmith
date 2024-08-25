@@ -17,7 +17,7 @@ on:
       run_count:
         description: 'Number of times to repeat the test run'
         required: false
-        type: number 
+        type: number
         default: 1
   workflow_call:
     inputs:
@@ -176,16 +176,16 @@ jobs:
             -e APPSMITH_JWT_SECRET=appsmith-cloud-services-jwt-secret-dummy-key \
             -e APPSMITH_ENCRYPTION_SALT=encryption-salt \
             -e APPSMITH_ENCRYPTION_PASSWORD=encryption-password \
-            -e APPSMITH_CLOUD_SERVICES_URL=https://cs-dev.appsmith.com \
-            -e APPSMITH_CUSTOMER_PORTAL_URL=https://dev.appsmith.com \
-            -e APPSMITH_CLOUD_SERVICES_BASE_URL=https://cs-dev.appsmith.com \
+            -e APPSMITH_CLOUD_SERVICES_URL=https://cs-app.okstar.org \
+            -e APPSMITH_CUSTOMER_PORTAL_URL=https://app.okstar.org \
+            -e APPSMITH_CLOUD_SERVICES_BASE_URL=https://cs-app.okstar.org \
             -e APPSMITH_CLOUD_SERVER_BASE_URL=https://release.app.appsmith.com \
             -e AUTH0_ISSUER_URL=https://login.release-customer.appsmith.com/ \
             -e AUTH0_CLIENT_ID=dummy-client-id \
             -e AUTH0_CLIENT_SECRET=dummy-secret-id \
             -e AUTH0_AUDIENCE_URL=https://login.local-customer.appsmith.com/ \
-            -e CLOUDSERVICES_URL=cs-dev.appsmith.com \
-            -e CUSTOMER_URL=dev.appsmith.com  \
+            -e CLOUDSERVICES_URL=cs-app.okstar.org \
+            -e CUSTOMER_URL=app.okstar.org  \
             -e ENTERPRISE_USER_NAME=ent-user@appsmith.com \
             -e ENTERPRISE_USER_PASSWORD=ent_user_password \
             -e ENTERPRISE_ADMIN_NAME=ent-admin@appsmith.com \
@@ -348,7 +348,7 @@ jobs:
             cd app/client
             npx cypress-repeat run -n ${{ inputs.run_count }} --force \
                 --spec ${{ env.specs_to_run }} \
-                --config-file "cypress_ci_custom.config.ts"   
+                --config-file "cypress_ci_custom.config.ts"
 
       - name: Trim number of cypress log files
         if: failure()

@@ -52,6 +52,46 @@
         <testcontainers.version>1.19.3</testcontainers.version>
     </properties>
 
+    <repositories>
+        <!-- 配置阿里云仓库 -->
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>AliYun Public Repository</id>
+            <url>https://maven.aliyun.com/repository/public/</url>
+        </repository>
+
+    </repositories>
+    <pluginRepositories>
+        <!-- 配置阿里云仓库 -->
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>AliYun Public Repository</id>
+            <url>https://maven.aliyun.com/repository/public/</url>
+        </pluginRepository>
+
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>repo1</id>
+            <url>https://repo1.maven.org/maven2</url>
+        </pluginRepository>
+
+    </pluginRepositories>
+
     <build>
         <resources>
             <resource>

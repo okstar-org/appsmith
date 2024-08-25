@@ -181,8 +181,7 @@ public class DatabaseChangelog1 {
 
         ensureIndexes(mongoTemplate, Collection.class, createdAtIndex);
 
-        ensureIndexes(
-                mongoTemplate, Config.class, createdAtIndex, makeIndex("name").unique());
+//        ensureIndexes(mongoTemplate, Config.class, createdAtIndex, makeIndex("name").unique());
 
         ensureIndexes(mongoTemplate, Datasource.class, createdAtIndex);
 
@@ -739,12 +738,12 @@ public class DatabaseChangelog1 {
     public void updatePluginPackageNameIndexToPluginNamePackageNameAndVersion(MongoTemplate mongoTemplate) {
         dropIndexIfExists(mongoTemplate, Plugin.class, "packageName");
 
-        ensureIndexes(
-                mongoTemplate,
-                Plugin.class,
-                makeIndex("pluginName", "packageName", "version")
-                        .unique()
-                        .named("plugin_name_package_name_version_index"));
+//        ensureIndexes(
+//                mongoTemplate,
+//                Plugin.class,
+//                makeIndex("pluginName", "packageName", "version")
+//                        .unique()
+//                        .named("plugin_name_package_name_version_index"));
     }
 
     @ChangeSet(order = "094", id = "migrate-s3-to-uqi", author = "")
