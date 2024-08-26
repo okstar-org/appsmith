@@ -287,6 +287,8 @@ jobs:
           tar -czvf server.jar dist/
           mkdir cacherepo
           cd ./cacherepo
+          git config --global user.name "$gituser"
+          git config --global user.email "$gituseremail"
           git clone https://github.com/okstar-org/${cache_repo}.git
           git lfs install
           cd ${cache_repo}
