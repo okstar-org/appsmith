@@ -261,9 +261,9 @@ public class UserWorkspaceServiceCEImpl implements UserWorkspaceServiceCE {
                     Map<String, String> userDataMap = tuple.getT3();
                     workspaceMemberInfoDTOList.forEach(userAndPermissionGroupDTO -> {
                         User user = userMap.get(userAndPermissionGroupDTO.getUserId());
-                        userAndPermissionGroupDTO.setName(
-                                Optional.ofNullable(user.getName()).orElse(user.computeFirstName()));
+                        userAndPermissionGroupDTO.setName(Optional.ofNullable(user.getName()).orElse(user.computeFirstName()));
                         userAndPermissionGroupDTO.setUsername(user.getUsername());
+                        userAndPermissionGroupDTO.setOrigin(user.getOrigin());
                         userAndPermissionGroupDTO.setPhotoId(userDataMap.get(userAndPermissionGroupDTO.getUserId()));
                     });
                     return workspaceMemberInfoDTOList;

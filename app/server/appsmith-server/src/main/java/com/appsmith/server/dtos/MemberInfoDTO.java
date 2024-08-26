@@ -12,8 +12,8 @@ import java.util.List;
 public class MemberInfoDTO extends MemberInfoCE_DTO {
 
     @Builder
-    public MemberInfoDTO(
+    public MemberInfoDTO(String origin,
             String userId, String username, String name, List<PermissionGroupInfoDTO> roles, String photoId) {
-        super(userId, username, name, roles, photoId);
+        super(origin, userId, username, name, roles, photoId);
     }
 }

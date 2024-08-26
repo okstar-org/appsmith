@@ -79,6 +79,20 @@ export const UserName = styled.div`
   }
 `;
 
+export const UserOrigin = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  span {
+    word-break: break-word;
+
+    &:nth-child(1) {
+      margin-bottom: 1px;
+    }
+  }
+`;
+
+
 export const MailConfigContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -97,6 +111,7 @@ export const ManageUsersContainer = styled.div`
 // TODO: Fix this the next time the file is edited
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function WorkspaceInviteUsers(props: any) {
+
   const isFeatureEnabled = useFeatureFlag(FEATURE_FLAG.license_gac_enabled);
   const userRef = React.createRef<HTMLDivElement>();
   const currentWorkspace = useSelector(getCurrentAppWorkspace);
@@ -122,9 +137,9 @@ function WorkspaceInviteUsers(props: any) {
     () =>
       allUsers.map(
         (user: {
-          origin: string;
           userId: string;
           username: string;
+          origin: string;
           permissionGroupId: string;
           permissionGroupName: string;
           name: string;
@@ -140,7 +155,7 @@ function WorkspaceInviteUsers(props: any) {
 
   return (
     <WorkspaceInviteWrapper>
-      <InviteUsersForm {...props} origin={"External"} />
+      <InviteUsersForm {...props} origin={"Internal"} />
       {isLoading ? (
         <div className="pt-4 overflow-hidden">
           <Spinner size="lg" />
@@ -187,18 +202,8 @@ function WorkspaceInviteUsers(props: any) {
                               color="var(--ads-v2-color-fg)"
                               kind="heading-xs"
                             >
-                              {user.name}
+                              {user.name}000000
                             </Text>
-                          </UserName>
-                          <UserName>
-                            <Tooltip content={user.origin} placement="top">
-                              <Text
-                                color="var(--ads-v2-color-fg)"
-                                kind="heading-xs"
-                              >
-                                {user.origin}
-                              </Text>
-                            </Tooltip>
                           </UserName>
                         </>
                       ) : (
@@ -223,16 +228,11 @@ function WorkspaceInviteUsers(props: any) {
                               </Text>
                             </Tooltip>
                           </UserName>
-                          <UserName>
-                            <Tooltip content={user.origin} placement="top">
-                              <Text
-                                color="var(--ads-v2-color-fg)"
-                                kind="heading-xs"
-                              >
-                                {user.origin}
-                              </Text>
-                            </Tooltip>
-                          </UserName>
+                          <UserOrigin>
+                            <Text color="var(--ads-v2-color-fg)" kind="heading-xs">
+                              {user.origin}
+                            </Text>
+                          </UserOrigin>
                         </>
                       )}
                     </UserInfo>

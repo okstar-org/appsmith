@@ -32,6 +32,7 @@ export interface InviteUsersProps {
   options?: any;
   isMultiSelectDropdown?: boolean;
   checkIfInvitedUsersFromDifferentDomain?: () => void;
+  origin: string;
 }
 
 export interface CreateWorkspaceFormValues {
@@ -98,11 +99,13 @@ export const inviteUsersToWorkspace = async (
   const data = {
     permissionGroupId: values.permissionGroupId,
     usernames: values.users ? values.users.split(",") : [],
+    origin: values.origin,
     workspaceId: values.workspaceId,
     ...("recaptchaToken" in values && {
       recaptchaToken: values.recaptchaToken,
     }),
   };
+
   return new Promise((resolve, reject) => {
     dispatch({
       type: ReduxActionTypes.INVITE_USERS_TO_WORKSPACE_INIT,

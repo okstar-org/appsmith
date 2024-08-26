@@ -105,6 +105,7 @@ public class UserAndAccessManagementServiceCEImpl implements UserAndAccessManage
             return Mono.error(new AppsmithException(AppsmithError.INVALID_PARAMETER, FieldName.ORIGIN));
         }
 
+        String origin = inviteUsersDTO.getOrigin();
         List<String> originalUsernames = inviteUsersDTO.getUsernames();
 
         if (CollectionUtils.isEmpty(originalUsernames)) {
@@ -114,6 +115,7 @@ public class UserAndAccessManagementServiceCEImpl implements UserAndAccessManage
         if (!StringUtils.hasText(inviteUsersDTO.getPermissionGroupId())) {
             return Mono.error(new AppsmithException(AppsmithError.INVALID_PARAMETER, FieldName.ROLE));
         }
+
 
         Set<String> usernames = new HashSet<>();
         for (String username : originalUsernames) {
@@ -169,6 +171,7 @@ public class UserAndAccessManagementServiceCEImpl implements UserAndAccessManage
                             .flatMap(existingUser -> Mono.just(Tuples.of(existingUser, false)))
                             .switchIfEmpty(Mono.defer(() -> {
                                 User newUser = new User();
+                                newUser.setOrigin(origin);
                                 newUser.setEmail(username.toLowerCase());
                                 newUser.setIsEnabled(false);
                                 boolean isAdminUser = false;

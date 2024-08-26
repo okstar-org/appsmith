@@ -20,6 +20,7 @@ import { WorkspaceSettingsTabs } from "ee/components/WorkspaceSettingsTabs";
 import { useFeatureFlag } from "utils/hooks/useFeatureFlag";
 import { FEATURE_FLAG } from "ee/entities/FeatureFlag";
 import { fetchAllWorkspaces } from "ee/actions/workspaceActions";
+import OkWorkspaceInviteUsersForm, {UserOrigin} from "./OkWorkspaceInviteUsersForm";
 
 const SettingsWrapper = styled.div<{
   isMobile?: boolean;
@@ -69,6 +70,7 @@ export default function Settings() {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
+  const [showAddInternalModal, setShowAddInternalModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
   const [pageTitle, setPageTitle] = useState<string>("");
@@ -91,6 +93,10 @@ export default function Settings() {
 
   const onButtonClick = () => {
     setShowModal(true);
+  };
+
+  const onButtonClick2 = () => {
+    setShowAddInternalModal(true);
   };
 
   useEffect(() => {
@@ -129,8 +135,10 @@ export default function Settings() {
         <StyledStickyHeader isMobile={isMobile}>
           <BackButton />
           <SettingsPageHeader
-            buttonText="Add users"
+            buttonText="Add external users"
+            buttonText2="Add internal users"
             onButtonClick={onButtonClick}
+            onButtonClick2={onButtonClick2}
             onSearch={onSearch}
             pageMenuItems={pageMenuItems}
             searchPlaceholder={createMessage(SEARCH_USERS, !isGACEnabled)}
@@ -151,9 +159,21 @@ export default function Settings() {
       {currentWorkspace && (
         <FormDialogComponent
           Form={WorkspaceInviteUsersForm}
+          title={`Invite external users to ${currentWorkspace.name}`}
           hideDefaultTrigger
           isOpen={showModal}
           onClose={() => setShowModal(false)}
+          placeholder={createMessage(INVITE_USERS_PLACEHOLDER, !isGACEnabled)}
+          workspace={currentWorkspace}
+        />
+      )}
+      {currentWorkspace && (
+        <FormDialogComponent
+          Form={OkWorkspaceInviteUsersForm}
+          title={`Invite internal users to ${currentWorkspace.name}`}
+          hideDefaultTrigger
+          isOpen={showAddInternalModal}
+          onClose={() => setShowAddInternalModal(false)}
           placeholder={createMessage(INVITE_USERS_PLACEHOLDER, !isGACEnabled)}
           workspace={currentWorkspace}
         />

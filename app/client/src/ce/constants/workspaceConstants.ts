@@ -25,6 +25,11 @@ export interface WorkspaceUserRoles {
   autoCreated: boolean;
 }
 
+export enum UserOrigin {
+  INTERNAL = "Internal",
+  EXTERNAL = "External",
+}
+
 export interface WorkspaceUser {
   name: string;
   username: string;
@@ -35,6 +40,7 @@ export interface WorkspaceUser {
   isChangingRole: boolean;
   photoId?: string;
   roles: WorkspaceUserRoles[];
+  origin: UserOrigin;
 }
 
 export enum ENTITY_TYPE {

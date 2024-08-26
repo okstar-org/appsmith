@@ -68,6 +68,9 @@ public class User extends BaseDomain implements UserDetails, OidcUser {
     @JsonView(Views.Public.class)
     private String examplesWorkspaceId;
 
+    @JsonView(Views.Public.class)
+    private String origin;
+
     // This field is used when a user is invited to appsmith. This inviteToken is used to confirm the identity in verify
     // token flow.
     @JsonView(Views.Internal.class)

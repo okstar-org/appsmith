@@ -341,6 +341,7 @@ export function* inviteUser(payload: InviteUserPayload, reject: any) {
 export function* inviteUsers(
   action: ReduxActionWithPromise<{
     data: {
+      origin: string;
       usernames: string[];
       workspaceId: string;
       permissionGroupId: string;
@@ -352,6 +353,7 @@ export function* inviteUsers(
   try {
     const response: ApiResponse<{ id: string; username: string }[]> =
       yield callAPI(UserApi.inviteUser, {
+        origin: data.origin,
         usernames: data.usernames,
         permissionGroupId: data.permissionGroupId,
         recaptchaToken: data.recaptchaToken,

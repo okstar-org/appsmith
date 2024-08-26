@@ -310,8 +310,8 @@ function InviteUsersForm(props: any) {
     submitSucceeded,
     submitting,
     valid,
+    origin
   } = props;
-
   const { disableDropdown = false } = customProps;
 
   // set state for checking number of users invited
@@ -406,6 +406,7 @@ function InviteUsersForm(props: any) {
 
     AnalyticsUtil.logEvent("INVITE_USER", {
       ...(!isFeatureEnabled ? { users: usersAsStringsArray } : {}),
+      origin,
       role: roles,
       numberOfUsersInvited: usersAsStringsArray.length,
       orgId: props.workspaceId,
@@ -417,8 +418,9 @@ function InviteUsersForm(props: any) {
         users: validEmailsString,
         permissionGroupId: roles,
         recaptchaToken,
+        origin,
       },
-      dispatch,
+      dispatch
     );
   };
 

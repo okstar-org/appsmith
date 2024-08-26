@@ -12,5 +12,7 @@ public class InviteUsersCE_DTO {
 
     List<String> usernames;
 
+    String origin;
+
     @NotNull String permissionGroupId;
 }

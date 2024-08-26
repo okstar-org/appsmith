@@ -17,8 +17,10 @@ import { useMediaQuery } from "react-responsive";
 
 interface PageHeaderProps {
   buttonText?: string;
+  buttonText2?: string;
   searchPlaceholder: string;
   onButtonClick?: () => void;
+  onButtonClick2?: () => void;
   onSearch?: DebouncedFunc<(search: string) => void>;
   // TODO: Fix this the next time the file is edited
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -57,6 +59,7 @@ export function SettingsPageHeader(props: PageHeaderProps) {
 
   const {
     buttonText,
+    buttonText2,
     onSearch,
     pageMenuItems,
     searchPlaceholder,
@@ -119,6 +122,60 @@ export function SettingsPageHeader(props: PageHeaderProps) {
             />
           )}
         </SearchWrapper>
+        <ActionsWrapper>
+          {buttonText2 && showSearchNButton && (
+            <Button
+              data-testid={"t--page-header-input"}
+              onClick={props.onButtonClick2}
+              size="md"
+            >
+              {buttonText2}
+            </Button>
+          )}
+          {showMoreOptions && (
+            <Menu
+              onOpenChange={(open: boolean) => {
+                if (showOptions) {
+                  setShowOptions(open);
+                  showConfirmationText && setShowConfirmationText(false);
+                }
+              }}
+              open={showOptions}
+            >
+              <MenuTrigger>
+                <Button
+                  className="actions-icon"
+                  data-testid="t--page-header-actions"
+                  isIconButton
+                  kind="tertiary"
+                  onClick={() => setShowOptions(!showOptions)}
+                  size="md"
+                  startIcon="more-2-fill"
+                />
+              </MenuTrigger>
+              <MenuContent align="end">
+                {pageMenuItems &&
+                  pageMenuItems.map((menuItem) => (
+                    <MenuItem
+                      className={`${menuItem.className} ${
+                        menuItem.label === "delete" ? "error-menuitem" : ""
+                      }`}
+                      data-testid={`t--${menuItem.className}`}
+                      key={menuItem.text}
+                      onClick={(e: React.MouseEvent) => {
+                        onOptionSelect(e, menuItem);
+                      }}
+                      startIcon={menuItem.icon}
+                    >
+                      {showConfirmationText && menuItem.label === "delete"
+                        ? createMessage(ARE_YOU_SURE)
+                        : menuItem.text}
+                    </MenuItem>
+                  ))}
+              </MenuContent>
+            </Menu>
+          )}
+        </ActionsWrapper>
         <ActionsWrapper>
           {buttonText && showSearchNButton && (
             <Button

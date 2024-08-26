@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class MemberInfoCE_DTO {
+    String origin;
     String userId;
     String username;
     String name;

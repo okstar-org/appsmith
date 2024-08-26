@@ -350,6 +350,22 @@ export default function MemberSettings(props: PageProps) {
         );
       },
     },
+
+    {
+      Header: "Origin",
+      accessor: "origin",
+      // TODO: Fix this the next time the file is edited
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      Cell: function UserCall(props: any) {
+        const member = props.cell.row.original;
+        return (
+          <EachUser>
+            <Text>{member.origin}</Text>
+          </EachUser>
+        );
+      },
+    },
+
     {
       Header: "Resource",
       accessor: "resource",

@@ -27,7 +27,7 @@ export const StyledBackLink = styled(Link)`
 export const SettingsHeader = styled(Text)`
   padding: 0px 8px 0 0;
   margin-bottom: 0px;
-  width: 365px;
+  //width: 365px;
   ${truncateTextUsingEllipsis}
 `;
 
