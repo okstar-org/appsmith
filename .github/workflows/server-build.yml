@@ -290,8 +290,8 @@ jobs:
           git clone https://github.com/okstar-org/${cache_repo}.git
           git lfs install
           cd ${cache_repo}
-          if [ "$reponame" = "appsmith" ]; then export repodir="CE"; fi
-          if [ "$reponame" = "appsmith-ee" ]; then export repodir="EE"; fi
+          if [ "$reponame" = "appsmith" ]; then export repodir="ce"; fi
+          if [ "$reponame" = "appsmith-ee" ]; then export repodir="ee"; fi
           cd $repodir/release/server
           cp ../../../../../server.jar ./
           git lfs track "server.jar"
